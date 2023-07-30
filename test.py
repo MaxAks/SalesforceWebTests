@@ -1,0 +1,12 @@
+#login_data = open('/Users/maxim/environments/login-pass.txt','r')
+#user_name = login_data.readline()
+#user_name = user_name.rstrip("Test")
+#password = login_data.readline()
+#password = password.rstrip('')
+with open("login-pass.txt", "r") as f:
+    lines = f.readlines()
+    #lines = line.rstrip('\n')
+    user_name = lines[0].strip()
+    password = lines[1].strip()
+print(user_name)
+print(password)
