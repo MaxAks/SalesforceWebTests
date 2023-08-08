@@ -1,6 +1,54 @@
 # SalesforceWebTests
- Automation tests for tests with Selenium Python different function of Saleforce
+Automation tests for tests with Selenium Python different function of Saleforce
 
+ENGLISH
+
+To work with your credentials, you need to check all the selectors in the tests, they may differ when customizing your accounts.
+
+FILE
+
+====================== login-pass.txt ======================
+
+A text file containing the login and password for logging in to the Salesforce account.
+The current file should be placed in the same directory as all files that refer to it in their code.
+The file structure should look like this:
+The first line is login
+The second line is password
+If the file structure is broken or the values are missing, then the test_login-1-0-0.py file will generate an error.
+
+
+
+====================== test_login-1-0-0.py =================== ===
+
+This file takes login and password values line by line from the text file login-pass.txt (located in the same directory as the current file) and uses them to enter the sandbox (DEV, UAT, SIT environment) to verify the correct login and password. The file checks for login and password in a text file. If any of this is missing, an error is displayed indicating what exactly is missing. If the text file is filled incorrectly, an error is also displayed. After checking the text file, the current file enters the login and password values in the appropriate windows and logs in. If the login and password are not valid, then a message pops up about their incorrectness. If login and password match, the test succeeds.
+
+
+
+====================== test_update_pass-1-0-0.py =================== ===
+
+If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if the password needs to be changed on the user in use. If it is necessary to change the password, the test fails with an error and a recommendation to change the password. If the password does not need to be changed, the test succeeds.
+
+>>> REQUIRED TO RECORD THAT THE FILE test_login-1-0-0.py WAS SUCCESSFUL
+
+
+
+====================== test_verify_your_identity-1-0-0.py =================== ===
+
+If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if you need to enter a verification code to enter the account. If you need to enter such a code, the test fails with an error and a recommendation to contact the Account Administrator. If you do not need to enter a variation code, the test is successful.
+
+>>> REQUIRED TO RECORD THAT THE FILE test_login-1-0-0.py WAS SUCCESSFUL
+
+
+
+====================== test_language_check-1-0-0.py =================== ===
+
+If the test_login-1-0-0.py file was successful and the login and password are correct, in this case the current file will check which language is installed in the system and if not the English test is installed, it crashes.
+
+>>> REQUIRED TO RECORD THAT THE FILE test_login-1-0-0.py WAS SUCCESSFUL
+
+
+
+РУССКИЙ
 Для работы с вашими учетными данными необходима проверка всех селекторов в тестах, они могут отличаться при кастомизации ваших учетных записей.
 
  ФАЙЛ
