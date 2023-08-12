@@ -7,6 +7,14 @@ To work with your credentials, you need to check all the selectors in the tests,
 
 FILE
 
+====================== conftest.py ======================
+
+A file that describes the data configuration in the test and the test environment.
+The default configuration is to launch the browser for each function in the test and close the browser after the function completes.
+The default browser is Chrome
+
+
+
 ====================== login-pass.txt ======================
 
 A text file containing the login and password for logging in to the Salesforce account.
@@ -51,7 +59,15 @@ If the test_login-1-0-0.py file was successful and the login and password are co
 РУССКИЙ
 Для работы с вашими учетными данными необходима проверка всех селекторов в тестах, они могут отличаться при кастомизации ваших учетных записей.
 
- ФАЙЛ
+ФАЙЛ
+
+====================== conftest.py ======================
+
+Файл, который описывает конфигурацию данных в тесте и тестовю среду.
+По умолчанию установлена конфигурация запуска браузера для каждой функуии в тесте и закрытия браузера после завершения функции.
+По умолчанию установлен браузер Chrome
+
+
 
 ====================== login-pass.txt ======================
 
