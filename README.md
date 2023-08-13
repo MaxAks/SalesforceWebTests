@@ -42,7 +42,7 @@ If the file structure is broken or the values are missing, then the test_login-1
 
 
 
-====================== test_login-1-0-0.py =================== ===
+====================== test_login_in_sf.py =================== ===
 
 This file takes login and password values line by line from the text file login-pass.txt (located in the same directory as the current file) and uses them to enter the sandbox (DEV, UAT, SIT environment) to verify the correct login and password. The file checks for login and password in a text file. If any of this is missing, an error is displayed indicating what exactly is missing. If the text file is filled incorrectly, an error is also displayed. After checking the text file, the current file enters the login and password values in the appropriate windows and logs in. If the login and password are not valid, then a message pops up about their incorrectness. If login and password match, the test succeeds.
 
@@ -112,7 +112,7 @@ pytest -s -v -m "regression" test_test.py
 
 
 
-====================== test_login-1-0-0.py ======================
+====================== test_login_in_sf.py ======================
 
 Данный файл берет из текстового файла login-pass.txt (лежит в одной директории, что и текущий файл) построчно значения login и password и использует их для входа в песочницу (среда DEV, UAT, SIT) для проверки правильности логина и пароля. Фаил проверяет наличие login и password в текстовом файле. Если чего-то из этого нет - выводится ошибка, что именно отсутствует. Если текстовый файил заполнен не корректно - ошибка выводится также. После проверки текстового файла, текущий фаил вводит значения login и password в соответствующие окна и осуществялет вход. ЕСли логин и пароль не валидны, то выскакиает сообщение об их некорректности. Если login и password подходят, тест заканчивается успехом.
 
