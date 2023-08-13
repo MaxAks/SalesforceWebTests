@@ -15,6 +15,22 @@ The default browser is Chrome
 
 
 
+====================== pytest.ini ======================
+
+A file that contains existing markings for combining tests into a group.
+To group tests, use the construct
+
+====
+@pytest.mark.regression
+     def test_test
+
+this construct will mark the test to run in the regression testing group
+to call testing, it is the group of regression tests that must be specified when starting the test suite via the -m command
+
+pytest -s -v -m "regression" test_test.py
+
+
+
 ====================== login-pass.txt ======================
 
 A text file containing the login and password for logging in to the Salesforce account.
@@ -66,6 +82,22 @@ If the test_login-1-0-0.py file was successful and the login and password are co
 Файл, который описывает конфигурацию данных в тесте и тестовю среду.
 По умолчанию установлена конфигурация запуска браузера для каждой функуии в тесте и закрытия браузера после завершения функции.
 По умолчанию установлен браузер Chrome
+
+
+
+====================== pytest.ini ======================
+
+Файл, котороый содержит в себе существующие маркировки для объединения тестов в группу.
+Для группировки тестов используйте констукцию 
+
+====
+@pytest.mark.regression
+    def test_test
+
+это конструкция пометит тест для запуска в группе регрессионного тестирования
+для вызова тестирования именно группы регрессионых тестов необходим при запуске тестовго суита указать через команду -m
+
+pytest -s -v -m "regression" test_test.py
 
 
 
