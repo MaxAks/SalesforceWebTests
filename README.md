@@ -31,6 +31,12 @@ pytest -s -v -m "regression" test_test.py
 
 
 
+====================== test_login_suit ======================
+
+A test suite file containing tests for checking the correctness of the password, the need to enter a variation code or change the password
+
+
+
 ====================== login-pass.txt ======================
 
 A text file containing the login and password for logging in to the Salesforce account.
@@ -48,7 +54,7 @@ This file takes login and password values line by line from the text file login-
 
 
 
-====================== test_update_pass-1-0-0.py =================== ===
+====================== test_update_pass.py =================== ===
 
 If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if the password needs to be changed on the user in use. If it is necessary to change the password, the test fails with an error and a recommendation to change the password. If the password does not need to be changed, the test succeeds.
 
@@ -56,7 +62,7 @@ If the file test_login-1-0-0.py was successful and the login and password are co
 
 
 
-====================== test_verify_your_identity-1-0-0.py =================== ===
+====================== test_verify_your_identity.py =================== ===
 
 If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if you need to enter a verification code to enter the account. If you need to enter such a code, the test fails with an error and a recommendation to contact the Account Administrator. If you do not need to enter a variation code, the test is successful.
 
@@ -64,7 +70,7 @@ If the file test_login-1-0-0.py was successful and the login and password are co
 
 
 
-====================== test_language_check-1-0-0.py =================== ===
+====================== test_language_check.py =================== ===
 
 If the test_login-1-0-0.py file was successful and the login and password are correct, in this case the current file will check which language is installed in the system and if not the English test is installed, it crashes.
 
@@ -75,7 +81,7 @@ If the test_login-1-0-0.py file was successful and the login and password are co
 РУССКИЙ
 Для работы с вашими учетными данными необходима проверка всех селекторов в тестах, они могут отличаться при кастомизации ваших учетных записей.
 
-ФАЙЛ
+ФАЙЛЫ и ФУНКЦИИ
 
 ====================== conftest.py ======================
 
@@ -111,6 +117,11 @@ pytest -s -v -m "regression" test_test.py
 ЕСли структура файла нарушена или значения отсутствуют то фаил test_login-1-0-0.py будет выдавать ошибку.
 
 
+====================== test_login_suit ======================
+
+Фаил тест-сьют, содержащий в себе тесты на проверку правильности пароля, необходимость ввода варификационного кода или смены пароля
+
+
 
 ====================== test_login_in_sf.py ======================
 
@@ -118,7 +129,7 @@ pytest -s -v -m "regression" test_test.py
 
 
 
-====================== test_update_pass-1-0-0.py ======================
+====================== test_update_pass.py ======================
 
 Если фаил test_login-1-0-0.py выполнился успешно и логин и пароль верны, в этом случае текущий фаил проверят необходимость смены пароля на используемом пользователе. В случае необходимости смены пароля, тест падает с ошибкой и рекомендацией сменить пароль. Если пароль менять не нужно тест выполняется успешно.
 
@@ -126,7 +137,7 @@ pytest -s -v -m "regression" test_test.py
 
 
 
-====================== test_verify_your_identity-1-0-0.py ======================
+====================== test_verify_your_identity.py ======================
 
 Если фаил test_login-1-0-0.py выполнился успешно и логин и пароль верны, в этом случае текущий фаил проверят необходимость ввода варификационного кода для входа в учетную запись. В случае необходимости ввода такого кода, тест падает с ошибкой и рекомендацией связаться с Администратором учетной записи. Если варификационный код вводить не нужно тест выполняется успешно.
 
@@ -134,7 +145,7 @@ pytest -s -v -m "regression" test_test.py
 
 
 
-====================== test_language_check-1-0-0.py ======================
+====================== test_language_check.py ======================
 
 Если фаил test_login-1-0-0.py выполнился успешно и логин и пароль верны, в этом случае текущий фаил проверят какой язык установлен в системе и если установлен не Аншлийский тест падает с ошибкой.
 
