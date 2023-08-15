@@ -6,13 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC #ожидаем
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException # Импорта модуля о ненайденом элементе
 import time # импортируем модуль - нужен для работы с временем в системе
-# Читаем файл с логином и паролем
 
 class Test_Login():
 
     #==================== TEST NUMBER 1 ====================
+    @pytest.mark.dependency(recompute=True) #Указание, что этот тест является управлящим для остальных, параметр recompute=True означет, что зависимые тесты будут проходить, только если этот тест прошел успещно
     def test_login_in_sf(self, browser, login_pass): # Тест проверяет правильность логина и пароля в текстововм файле. В скобках указываем какие фикстуры вызываем как атрибуты функции
-        try: 
+        try:
             link = "https://test.salesforce.com/"
             browser.get(link)
             # Вводим логин и пароль и нажимаем войти
@@ -26,8 +26,8 @@ class Test_Login():
             element3 = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.ID, 'Login')))
             button = browser.find_element(By.ID, "Login")
             button.click()
-            #Проверка входа 
-            try: 
+            #Проверка входа
+            try:
                 check_error = browser.find_element(By.ID, "error") #Ищем сообщение о том что неправильный логин или пароль для входа
             except NoSuchElementException: # ожидаем что не найдем элемента с сообщением о неправильном логине и пароле
                 pass # Если находим что элемента нет - пропускаем этот этап - вся логика в следущем шаге
@@ -38,8 +38,9 @@ class Test_Login():
             time.sleep(5) # необходим для отладки, убрать при прохождении теста
 
     #==================== TEST NUMBER 2 ====================
-    def test_uptade_pass_in_sf(self, browser, login_pass): # Тест проверяет необходимости смены пароля текущего пользователя
-        try: 
+    @pytest.mark.dependency(depends=['Test_Login::test_login_in_sf'], reason="test_login_in_sf FAILD") # depends указывается от какого теста зависит текущий тест, название главного теста дается с названием Класса, где он находится. reason указывает сообщение которое будет выведено почему тест пропущен.
+    def test_update_pass_in_sf(self, browser, login_pass): # Тест проверяет необходимости смены пароля текущего пользователя
+        try:
             link = "https://test.salesforce.com/"
             browser = webdriver.Chrome()
             browser.get(link)
@@ -56,7 +57,7 @@ class Test_Login():
             button.click()
             #Проверка входа
             time.sleep(5)
-            try: 
+            try:
                 check_error = browser.find_element(By.ID, "password-button") #Ищем сообщение о том что неправильный логин или пароль для входа
             except NoSuchElementException: # ожидаем что не найдем элемента с сообщением о неправильном логине и пароле
                 pass # Если находим что элемента нет - пропускаем этот этап - вся логика в следущем шаге
@@ -67,8 +68,9 @@ class Test_Login():
             time.sleep(5) # необходим для отладки, убрать при прохождении теста
 
     #==================== TEST NUMBER 3 ====================
+    @pytest.mark.dependency(depends=['Test_Login::test_login_in_sf'], reason="test_login_in_sf FAILD") # depends указывается от какого теста зависит текущий тест, название главного теста дается с названием Класса, где он находится. reason указывает сообщение которое будет выведено почему тест пропущен.
     def test_verify_your_identity(self, browser, login_pass): # Тест проверяет необходимости ввода варификационого кода для входа
-        try: 
+        try:
             link = "https://test.salesforce.com/"
             browser = webdriver.Chrome()
             browser.get(link)
@@ -85,7 +87,7 @@ class Test_Login():
             button.click()
             #Проверка входа
             time.sleep(5)
-            try: 
+            try:
                 check_error = browser.find_element(By.ID, "save") #Ищем сообщение о том что неправильный логин или пароль для входа
             except NoSuchElementException: # ожидаем что не найдем элемента с сообщением о неправильном логине и пароле
                 pass # Если находим что элемента нет - пропускаем этот этап - вся логика в следущем шаге
@@ -95,5 +97,4 @@ class Test_Login():
             # ожидание чтобы визуально оценить результаты прохождения скрипта
             time.sleep(5) # необходим для отладки, убрать при прохождении теста
             # закрываем браузер после всех манипуляций
-
 

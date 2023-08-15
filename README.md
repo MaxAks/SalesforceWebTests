@@ -5,7 +5,7 @@ ENGLISH
 
 To work with your credentials, you need to check all the selectors in the tests, they may differ when customizing your accounts.
 
-FILE
+FILE AND FUNCTION
 
 ====================== conftest.py ======================
 
@@ -33,7 +33,7 @@ pytest -s -v -m "regression" test_test.py
 
 ====================== test_login_suit ======================
 
-A test suite file containing tests for checking the correctness of the password, the need to enter a variation code or change the password
+A test suite file containing tests for checking the correctness of the password, the need to enter a variation code or change the password. A dependency has been established that if the test_login_in_sf test fails, then the other two tests in the suite also fail.
 
 
 
@@ -44,37 +44,31 @@ The current file should be placed in the same directory as all files that refer 
 The file structure should look like this:
 The first line is login
 The second line is password
-If the file structure is broken or the values are missing, then the test_login-1-0-0.py file will generate an error.
+If the file structure is broken or the values are missing, then the test_login_in_sf.py file will generate an error.
 
 
 
-====================== test_login_in_sf.py =================== ===
+====================== test_login_in_sf.py ======================
 
 This file takes login and password values line by line from the text file login-pass.txt (located in the same directory as the current file) and uses them to enter the sandbox (DEV, UAT, SIT environment) to verify the correct login and password. The file checks for login and password in a text file. If any of this is missing, an error is displayed indicating what exactly is missing. If the text file is filled incorrectly, an error is also displayed. After checking the text file, the current file enters the login and password values in the appropriate windows and logs in. If the login and password are not valid, then a message pops up about their incorrectness. If login and password match, the test succeeds.
 
 
 
-====================== test_update_pass.py =================== ===
+====================== test_update_pass.py ======================
 
 If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if the password needs to be changed on the user in use. If it is necessary to change the password, the test fails with an error and a recommendation to change the password. If the password does not need to be changed, the test succeeds.
 
->>> REQUIRED TO RECORD THAT THE FILE test_login-1-0-0.py WAS SUCCESSFUL
 
 
-
-====================== test_verify_your_identity.py =================== ===
+====================== test_verify_your_identity.py ======================
 
 If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if you need to enter a verification code to enter the account. If you need to enter such a code, the test fails with an error and a recommendation to contact the Account Administrator. If you do not need to enter a variation code, the test is successful.
 
->>> REQUIRED TO RECORD THAT THE FILE test_login-1-0-0.py WAS SUCCESSFUL
 
 
-
-====================== test_language_check.py =================== ===
+====================== test_language_check.py ======================
 
 If the test_login-1-0-0.py file was successful and the login and password are correct, in this case the current file will check which language is installed in the system and if not the English test is installed, it crashes.
-
->>> REQUIRED TO RECORD THAT THE FILE test_login-1-0-0.py WAS SUCCESSFUL
 
 
 
@@ -114,12 +108,13 @@ pytest -s -v -m "regression" test_test.py
 Структура файла должна иметь следущий вид:
 Первая строка - login
 Вторая строка - password
-ЕСли структура файла нарушена или значения отсутствуют то фаил test_login-1-0-0.py будет выдавать ошибку.
+ЕСли структура файла нарушена или значения отсутствуют то фаил test_login_in_sf.py будет выдавать ошибку.
 
 
 ====================== test_login_suit ======================
 
-Фаил тест-сьют, содержащий в себе тесты на проверку правильности пароля, необходимость ввода варификационного кода или смены пароля
+Фаил тест-сьют, содержащий в себе тесты на проверку правильности пароля, необходимость ввода варификационного кода или смены пароля.
+Установлена зависимость, что если тест test_login_in_sf падает то остальные два теста в сьюте тоже падают.
 
 
 
@@ -133,20 +128,14 @@ pytest -s -v -m "regression" test_test.py
 
 Если фаил test_login-1-0-0.py выполнился успешно и логин и пароль верны, в этом случае текущий фаил проверят необходимость смены пароля на используемом пользователе. В случае необходимости смены пароля, тест падает с ошибкой и рекомендацией сменить пароль. Если пароль менять не нужно тест выполняется успешно.
 
->>> НЕОБХОДИМО ЗАПИСАТЬ ПРОВЕРКУ, ЧТО ФАИЛ test_login-1-0-0.py БЫЛ ВЫПОЛНЕН УСПЕШНО
-
 
 
 ====================== test_verify_your_identity.py ======================
 
 Если фаил test_login-1-0-0.py выполнился успешно и логин и пароль верны, в этом случае текущий фаил проверят необходимость ввода варификационного кода для входа в учетную запись. В случае необходимости ввода такого кода, тест падает с ошибкой и рекомендацией связаться с Администратором учетной записи. Если варификационный код вводить не нужно тест выполняется успешно.
 
->>> НЕОБХОДИМО ЗАПИСАТЬ ПРОВЕРКУ, ЧТО ФАИЛ test_login-1-0-0.py БЫЛ ВЫПОЛНЕН УСПЕШНО
-
 
 
 ====================== test_language_check.py ======================
 
 Если фаил test_login-1-0-0.py выполнился успешно и логин и пароль верны, в этом случае текущий фаил проверят какой язык установлен в системе и если установлен не Аншлийский тест падает с ошибкой.
-
->>> НЕОБХОДИМО ЗАПИСАТЬ ПРОВЕРКУ, ЧТО ФАИЛ test_login-1-0-0.py БЫЛ ВЫПОЛНЕН УСПЕШНО
