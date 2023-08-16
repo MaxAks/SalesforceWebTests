@@ -15,7 +15,7 @@ def browser():
 def login_pass():
     #file_path = os.path.join(os.getcwd(), "test_files_separately/login-pass.txt")  # получаем полный путь к файлу
     with open("login-pass.txt", "r") as f: # Открываем файил лежадий в одной директории с файлом и открываем его в переменную r
-        lines = f.readlines() # читаем файил построчно в переменную
+        lines = f.readlines() # читаем файл построчно в переменную
     if len(lines) == 2: # ПРоверяем что в файле 2 строки
         user_name = lines[0].rstrip('\n') # Удаляем из первой строчки знак переноса строки
         password = lines[1]

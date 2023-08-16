@@ -56,19 +56,19 @@ This file takes login and password values line by line from the text file login-
 
 ====================== test_update_pass.py ======================
 
-If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if the password needs to be changed on the user in use. If it is necessary to change the password, the test fails with an error and a recommendation to change the password. If the password does not need to be changed, the test succeeds.
+If the file test_login_in_sf.py was successful and the login and password are correct, in this case the current file will check if the password needs to be changed on the user in use. If it is necessary to change the password, the test fails with an error and a recommendation to change the password. If the password does not need to be changed, the test succeeds.
 
 
 
 ====================== test_verify_your_identity.py ======================
 
-If the file test_login-1-0-0.py was successful and the login and password are correct, in this case the current file will check if you need to enter a verification code to enter the account. If you need to enter such a code, the test fails with an error and a recommendation to contact the Account Administrator. If you do not need to enter a variation code, the test is successful.
+If the file test_login_in_sf.py was successful and the login and password are correct, in this case the current file will check if you need to enter a verification code to enter the account. If you need to enter such a code, the test fails with an error and a recommendation to contact the Account Administrator. If you do not need to enter a variation code, the test is successful.
 
 
 
 ====================== test_language_check.py ======================
 
-If the test_login-1-0-0.py file was successful and the login and password are correct, in this case the current file will check which language is installed in the system and if not the English test is installed, it crashes.
+If the test_login_in_sf.py file was successful and the login and password are correct, in this case the current file will check which language is installed in the system and if not the English test is installed, it crashes.
 
 
 
